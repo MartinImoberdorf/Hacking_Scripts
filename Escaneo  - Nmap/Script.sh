@@ -2,7 +2,7 @@
 
 # Escaneo silenicioso - lento
 function escaneoSilencioso(){
-nmap -sS -T0 -p- -Pn -n "$1" > escaneo_silencioso 2>/dev/null
+nmap -sS -T0 -p- -Pn -n "$1" -oN escaneo_silencioso 
 echo
 echo -e "\e[1;32mEscaneo completado y genereado el archivo 'escaneo_silencioso' \e[0m"
 echo
@@ -10,7 +10,7 @@ echo
 
 # Escaneo medio
 function escaneoMedio(){
-nmap -sS -sC -sV -p- -n -Pn -open -vvv --min-rate 5000 "$1" > escaneo_medio 2>/dev/null
+nmap -sS -sC -sV -p- -n -Pn -open -vvv --min-rate 5000 "$1" -oN escaneo_medio
 echo
 echo -e "\e[1;32mEscaneo completado y genereado el archivo 'escaneo_medio' \e[0m"
 echo
@@ -18,7 +18,7 @@ echo
 
 # Escaneo ruidoso - rapido
 function escaneoRuidoso(){
-nmap -sS -sV -sC -p- -T5 -v -A -PN -d --script-args=unsafe=1 "$1" > escaneo_ruidoso 2>/dev/null
+nmap -sS -sV -sC -p- -T5 -v -A -PN -d --script-args=unsafe=1 "$1" -oN escaneo_ruidoso
 echo
 echo -e "\e[1;32mEscaneo completado y genereado el archivo 'escaneo_ruidoso' \e[0m"
 echo
