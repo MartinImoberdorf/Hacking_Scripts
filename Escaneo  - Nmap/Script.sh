@@ -10,7 +10,7 @@ echo
 
 # Escaneo medio
 function escaneoMedio(){
-nmap -sS -sC -sV -p- -n -Pn -open -vvv --min-rate 5000 "$1" -oN escaneo_medio
+nmap -sS -sC -sV -p- -n -Pn --open -vvv --min-rate 5000 "$1" -oN escaneo_medio
 echo
 echo -e "\e[1;32mEscaneo completado y genereado el archivo 'escaneo_medio' \e[0m"
 echo
